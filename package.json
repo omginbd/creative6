@@ -1,0 +1,23 @@
+{
+  "name": "creative-6",
+  "version": "1.0.0",
+  "description": "Starcraft Match History Browser",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "test": "echo \"Nah\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omginbd/creative6.git"
+  },
+  "author": "Mike, Jeff",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/omginbd/creative6/issues"
+  },
+  "homepage": "https://github.com/omginbd/creative6#readme",
+  "dependencies": {
+    "express": "^4.15.2"
+  }
+}
