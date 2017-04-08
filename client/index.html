@@ -3,15 +3,24 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"> 
+     <link href='//fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
+     <link href='//fonts.googleapis.com/css?family=Advent Pro' rel='stylesheet'>
 
     <title>Creative 6</title>
 
     <link rel="stylesheet" href="style.css">
   </head>
-
-  <body>
-    <div>
-      WOW SO BEAUTIFUL
+  <body ng-app="match" ng-controller="MainCtrl">
+  <div class="container1">
+      <h1>Starcraft 2 Match History</h1>
+          <form ng-submit="getMatchHistory()">
+            <div id="enter-bar">
+              <b>Enter Battle.net ID</b>
+              <input type="text" ng-model="netID" placeholder="netID"></input>
+              <button class="btn-success" type="submit">Search</button>
+            </div>
+          </form>      
     </div>
     <script src="app.js"></script>
   </body>
