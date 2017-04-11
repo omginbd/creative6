@@ -5,6 +5,7 @@
   "main": "server/index.js",
   "scripts": {
     "start": "node server/index.js",
+    "start:dev": "nodemon server/index.js --ignore client/",
     "test": "echo \"Nah\""
   },
   "repository": {
@@ -18,6 +19,14 @@
   },
   "homepage": "https://github.com/omginbd/creative6#readme",
   "dependencies": {
-    "express": "^4.15.2"
+    "blizzard.js": "^1.7.0",
+    "bluebird": "^3.5.0",
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "mongoose": "^4.9.4",
+    "morgan": "^1.8.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
   }
 }

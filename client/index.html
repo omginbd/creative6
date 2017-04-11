@@ -3,25 +3,54 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"> 
-     <link href='//fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
-     <link href='//fonts.googleapis.com/css?family=Advent Pro' rel='stylesheet'>
+    <link href='//fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
+    <link href='//fonts.googleapis.com/css?family=Advent Pro' rel='stylesheet'>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.1/axios.js"></script>
 
     <title>Creative 6</title>
 
     <link rel="stylesheet" href="style.css">
   </head>
-  <body ng-app="match" ng-controller="MainCtrl">
-  <div class="container1">
+  <body ng-app="match" ng-controller="MainCtrl" ng-cloak>
+    <div class="container1">
       <h1>Starcraft 2 Match History</h1>
-          <form ng-submit="getMatchHistory()">
-            <div id="enter-bar">
-              <b>Enter Battle.net ID</b>
-              <input type="text" ng-model="netID" placeholder="netID"></input>
-              <button class="btn-success" type="submit">Search</button>
-            </div>
-          </form>      
+      <md-button class="md-primary md-raised" ng-click="showPrompt($event)">
+        Add New User
+      </md-button>
+
+      <!-- Existing User List -->
+      <div ng-repeat="user in users | orderBy: 'battleTag'">
+        {{user.battleTag}} <span ng-click="deleteUser(user)">X </span>
+      </div>
+      <!-- End Existing User List -->
+
+      <!-- New Battle Tag Dialog -->
+      <div style="visibility: hidden">
+        <div class="md-dialog-container" id="myDialog">
+          <md-dialog layout-padding>
+            <form ng-submit="addBattleUser()">
+              <div id="enter-bar">
+                <b>Enter Battle.net Info</b>
+                <input type="text" ng-model="battleTag" placeholder="Battle Tag (zomginbd#1321)"></input>
+                <input type="text" ng-model="battleId" placeholder="Battle ID"></input>
+                <button class="btn-success" type="submit">Add User</button>
+              </div>
+            </form>
+          </md-dialog>
+        </div>
+      </div>
+      <!-- End Dialog -->
     </div>
+    <!-- Angular Material requires Angular.js Libraries -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+    <!-- Angular Material Library -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
     <script src="app.js"></script>
   </body>
 </html>
