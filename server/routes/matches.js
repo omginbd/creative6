@@ -4,7 +4,7 @@ const blizzard = require('blizzard.js').initialize({
   locale: 'en_us'
 })
 
-const User = require('../models/user.js')
+const Player = require('../models/player.js')
 
 module.exports = function(app) {
   app.get('/matches/:_id', getMatches)
@@ -12,10 +12,9 @@ module.exports = function(app) {
 
 const getMatches = (req, res) => {
   const _id = req.params._id
-  User.find({_id})
+  Player.find({_id})
     .then(result => {
       const profile = result[0]
-      console.log(profile)
       blizzard.sc2.profile('matches', {id: profile.battleId, name: profile.battleName})
         .then(resp => {
           res.json(resp.data)

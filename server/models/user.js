@@ -1,16 +1,8 @@
 const mongoose = require('mongoose')
+const passportLocalMongoose = require('passport-local-mongoose')
 
-const UserSchema = mongoose.Schema({
-  battleName: String,
-  battleTag: String,
-  battleId: String
-})
+const UserSchema = mongoose.Schema({})
 
-UserSchema.methods.getName = () => {
-  if (!this.battleName) return this.battleTag.split('#')[0]
-  return this.battleName
-}
+UserSchema.plugin(passportLocalMongoose)
 
-const User = mongoose.model('User', UserSchema)
-
-module.exports = User
+module.exports = mongoose.model('User', UserSchema)

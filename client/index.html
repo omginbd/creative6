@@ -17,14 +17,14 @@
     <div class="container1">
       <h1>Starcraft 2 Match History</h1>
       <md-button class="md-primary md-raised" ng-click="showPrompt($event)">
-        Add New User
+        Add New Player
       </md-button>
 
-      <!-- Existing User List -->
-      <div ng-repeat="user in users | orderBy: 'battleTag'">
-        {{user.battleTag}} <span ng-click="deleteUser(user)">X </span>
+      <!-- Existing Player List -->
+      <div ng-repeat="player in players | orderBy: 'battleTag' track by $index">
+        <span ng-click="viewMatches(player)">{{player.battleTag}}</span> <span ng-click="deleteUser(player)">X </span>
       </div>
-      <!-- End Existing User List -->
+      <!-- End Existing Player List -->
 
       <!-- New Battle Tag Dialog -->
       <div style="visibility: hidden">
@@ -35,7 +35,7 @@
                 <b>Enter Battle.net Info</b>
                 <input type="text" ng-model="battleTag" placeholder="Battle Tag (zomginbd#1321)"></input>
                 <input type="text" ng-model="battleId" placeholder="Battle ID"></input>
-                <button class="btn-success" type="submit">Add User</button>
+                <md-button class="md-primary md-raised">Add Player</md-button>
               </div>
             </form>
           </md-dialog>

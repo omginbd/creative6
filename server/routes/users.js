@@ -1,33 +1,27 @@
+const passport = require('passport')
+
 const User = require('../models/user.js')
 
-module.exports = function(app) {
-  app.get('/users', getUsers)
-  app.post('/users', newUser)
-  app.delete('/users/:_id', deleteUser)
+module.exports = (app) => {
+  app.post('/users/login', passport.authenticate('local'), loginUser)
+  app.post('/users/signup', newUser)
+  app.get('/users/logout', logout)
 }
 
-const getUsers = (req, res) => {
-  User.find({})
-    .then(users => {
-      res.json(users)
-    })
+const loginUser = (req, res) => {
+  res.redirect('/')
 }
 
 const newUser = (req, res) => {
-  const battleTag = req.body.battleTag
-  const battleId = req.body.battleId
-  const battleName = battleTag.split('#')[0]
-  const user = new User({battleName, battleTag, battleId})
-  user.save()
-    .then(newUser => {
-      res.json(newUser)
+  User.register(new User({username: req.body.username}), req.body.password, (err, user) => {
+    if (err) return res.redirect('/login.html')
+    passport.authenticate('local')(req, res, () => {
+      res.redirect('/')
     })
+  })
 }
 
-const deleteUser = (req, res) => {
-  const _id = req.params._id
-  User.remove({_id})
-    .then(result => {
-      res.json(result)
-    })
+const logout = (req, res) => {
+  req.logout()
+  res.redirect('/login.html')
 }
