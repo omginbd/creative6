@@ -25,6 +25,9 @@
         <span ng-click="viewMatches(player)">{{player.battleTag}}</span> <span ng-click="deleteUser(player)">X </span>
       </div>
       <!-- End Existing Player List -->
+      <div ng-repeat="match in matches | orderBy: 'date' track by $index">
+        <span ng-if="match.decision==='WIN'">{{match.decision}}  {{match.map}}</span>
+      </div>
 
       <!-- New Battle Tag Dialog -->
       <div style="visibility: hidden">

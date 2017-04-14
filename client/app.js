@@ -29,6 +29,7 @@ function MatchHistoryController($scope, $mdDialog) {
   $scope.viewMatches = function(user) {
     axios.get(`/matches/${user._id}`)
       .then(resp => {
+        console.log(resp.data);
         $scope.matches = resp.data.matches
         $scope.$apply()
       })
