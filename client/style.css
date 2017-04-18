@@ -45,3 +45,15 @@ h1 {
 	cursor: pointer;
 	font-size: 25px;
 }
+
+.signin {
+	color: red;
+}
+#full-page {
+	width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 100px;
+
+
+}
