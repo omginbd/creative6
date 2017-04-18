@@ -29,12 +29,19 @@ h1 {
 #loss {
 	color: red;
 }
-
+#battle-person {
+	font-size: 25px;
+	font-family: 'Aldrich';
+}
 #battle-person:hover {
 	color: blue;
 	cursor: pointer;
+	font-size: 30px;
+}
+#erase {
+	color: red;
 }
 #erase:hover {
-	color: red;
 	cursor: pointer;
+	font-size: 25px;
 }
