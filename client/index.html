@@ -22,11 +22,12 @@
 
       <!-- Existing Player List -->
       <div ng-repeat="player in players | orderBy: 'battleTag' track by $index">
-        <span ng-click="viewMatches(player)">{{player.battleTag}}</span> <span ng-click="deleteUser(player)">X </span>
+        <span id="battle-person" ng-click="viewMatches(player)">{{player.battleTag}}</span> <span id="erase" ng-click="deleteUser(player)">X </span>
       </div>
       <!-- End Existing Player List -->
       <div ng-repeat="match in matches | orderBy: 'date' track by $index">
-        <span ng-if="match.decision==='WIN'">{{match.decision}}  {{match.map}}</span>
+        <span id="win" ng-if="match.decision==='WIN'">{{match.decision}}  {{match.map}}</span>
+        <span id="loss" ng-if="match.decision==='LOSS'"> {{ match.decision }} {{ match.map }}</span>
       </div>
 
       <!-- New Battle Tag Dialog -->

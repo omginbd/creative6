@@ -22,3 +22,19 @@ h1 {
 	color: #7c0101;
 	font-family: 'Advent Pro';
 }
+
+#win {
+	color: #003700;
+}
+#loss {
+	color: red;
+}
+
+#battle-person:hover {
+	color: blue;
+	cursor: pointer;
+}
+#erase:hover {
+	color: red;
+	cursor: pointer;
+}
